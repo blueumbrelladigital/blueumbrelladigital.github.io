@@ -4,7 +4,7 @@ let input = prompt("Enter a string of characters to see if they form a palindrom
 let phrase = new Phrase(input);
 
 if (phrase.palindrome()) {
-    alert("Yup, dildo shit!");
+    alert("Yup, that's a palindrome!");
 } else {
-    alert("Hell nah, ya bitch.");
+    alert("Hell nah, ya fucker.");
 }
