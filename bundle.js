@@ -1,14 +1,23 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 let Phrase = require("bud-palindrome");
 
-let input = prompt("Enter a string of characters to see if they form a palindrome:");
-let phrase = new Phrase(input);
-
-if (phrase.palindrome()) {
-    alert("Yup, dildo shit!");
-} else {
-    alert("Hell nah, ya bitch.");
+function palindromeTester() {
+    let input = prompt("Enter a string of characters to see if they form a palindrome:");
+    let phrase = new Phrase(input);
+    
+    if (phrase.palindrome()) {
+        alert("Yup, that's a palindrome!");
+    } else {
+        alert("Hell nah, ya fucker.");
+    }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    let form = document.querySelector("#palindromeTester");
+    form.addEventListener("submit",function() {
+        palindromeTester();
+    });    
+})
 
 },{"bud-palindrome":2}],2:[function(require,module,exports){
 module.exports = Phrase;
