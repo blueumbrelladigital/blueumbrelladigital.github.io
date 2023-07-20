@@ -4,11 +4,12 @@ let Phrase = require("bud-palindrome");
 function palindromeTester() {
     let input = prompt("Enter a string of characters to see if they form a palindrome:");
     let phrase = new Phrase(input);
-    
+    let result = document.querySelector("#palindromeResult");
+
     if (phrase.palindrome()) {
-        alert("Yup, that's a palindrome!");
+        result.innerHTML = `Yup, "<strong>${phrase.content}</strong>" is a palindrome!`;
     } else {
-        alert("Hell nah, ya fucker.");
+        result.innerHTML = `Hall nah, "${phrase.content}" ain't no palindrome, ya fucker.`;
     }
 }
 
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let form = document.querySelector("#palindromeTester");
     form.addEventListener("submit",function() {
         palindromeTester();
-    });    
+    });
 })
 
 },{"bud-palindrome":2}],2:[function(require,module,exports){
@@ -42,12 +43,20 @@ function Phrase(content) {
     
     // returns true if palindrome, false if not
     this.palindrome = function palindrome() {
-        return this.processedContent() === this.processedContent().reverse();
+        if (this.processedContent() === "") {
+            return false;
+        } else {
+            return this.processedContent() === this.processedContent().reverse();
+        }
     }
     
     // pass this.content to lower()
     this.processedContent = function processedContent() {
-        return this.lower(this.letters()); 
+        if (this.content === null) {
+            return "";
+        } else {
+            return this.lower(this.letters()); 
+        }
     }
     
     // returns all lowercase
