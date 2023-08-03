@@ -1,5 +1,4 @@
-
-//#!/home/ubuntu/.nvm/versions/node/v16.20.0/bin/node
+#!/home/ubuntu/.nvm/versions/node/v16.20.0/bin/node
 
 const { request } = require('urllib');
 let Phrase = require('bud-palindrome');
