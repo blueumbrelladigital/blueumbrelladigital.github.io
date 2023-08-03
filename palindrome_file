@@ -1,3 +1,5 @@
+#!/home/ubuntu/.nvm/versions/node/v16.20.0/bin/node
+
 let fs = require("fs");
 let Phrase = require("bud-palindrome");
 
