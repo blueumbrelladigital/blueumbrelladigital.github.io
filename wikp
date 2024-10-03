@@ -1,0 +1,39 @@
+#!/home/ubuntu/.nvm/versions/node/v16.20.0/bin/node
+
+const fs = require("fs");
+const { request } = require("urllib");
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const writeData = [];
+
+let url = process.argv[2];
+if (!url) {
+    console.log('\x1b[31m%s\x1b[0m', 'YOU FUCKED UP!\nSpecify a website, dodo.');
+    process.exit();
+}
+console.log('requested website: ', url);
+
+fetchURL(url).then(done => {
+    fs.writeFileSync("wikp_scraped.txt", writeData.join("\n"), "utf-8");
+    console.log('\x1b[32m%s\x1b[0m', 'data copied to copy.txt file!');
+});
+
+async function fetchURL(website) {
+    let { data, response } = await request(website);
+    let { document } = (new JSDOM(data.toString())).window;
+    
+    let paragraphs = document.querySelectorAll("p");
+    let references = document.querySelectorAll(".reference");
+    
+    console.log("initial references: ", references.length);
+        references.forEach(reference => {
+        reference.remove();
+    });
+    
+    console.log("updated references count: ", document.querySelectorAll(".reference").length);
+    console.log("paragraphs: ", paragraphs.length);
+    
+    paragraphs.forEach(paragraph => {
+        writeData.push(paragraph.innerHTML);
+    });
+}
