@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Learn Enough JavaScript</title>
+        <title>JavaScript Snippets</title>
         <meta charset="utf-8">
         <script src="day.js"></script>
+        <script src="bundle.js"></script>
+
         <script>
-            let now = new Date();
-            alert(greeting(now));
-            console.log("Greeting was rendered.");
+            //let now = new Date();
+            //alert(greeting(now));
+            //console.log("Greeting was rendered.");
             
             let firstName = "Stan";
             let lastName = "Smith";
@@ -15,7 +17,19 @@
         </script>
     </head>
     <body>
-        <h1>Welcome to the Javascript test page!</h1>
-        <p>This additional paragraph body content loads too!</p>
+        <h1>Javacript example snippets</h1>
+        <h3>1) Current day of the week:</h3>
+        <p id="dayContent">js error</p>
+        <script defer>
+            let now = new Date();
+            document.getElementById("dayContent").textContent = greeting(now);
+        </script>
+        <h3>2) Palindrome finder:</h3>
+        <form id="palindromeTester">
+            <textarea name="phrase"></textarea>
+            <br style="margin: 1em;">
+            <button type="submit return false;">Palindrome?</button>
+            <p id="palindromeResult"></p>
+        </form>
     </body>
 </html>

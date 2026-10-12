@@ -1,5 +1,5 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-let Phrase = require("bud-palindrome");
+let Phrase = require("palindrome-blue");
 
 function palindromeTester(event) {
     event.preventDefault();
@@ -8,9 +8,9 @@ function palindromeTester(event) {
     let result = document.querySelector("#palindromeResult");
 
     if (phrase.palindrome()) {
-        result.innerHTML = `Yup, "<strong>${phrase.content}</strong>" is a palindrome!`;
+        result.innerHTML = `Yes, "<strong><i>${phrase.content}</i></strong>" is a palindrome!`;
     } else {
-        result.innerHTML = `Hall nah, "<strong>${phrase.content}</strong>" ain't no palindrome, ya fucker.`;
+        result.innerHTML = `No, "<strong><i>${phrase.content}</i></strong>" is not a palindrome.`;
     }
 }
 
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-},{"bud-palindrome":2}],2:[function(require,module,exports){
+},{"palindrome-blue":2}],2:[function(require,module,exports){
 module.exports = Phrase;
 
 String.prototype.reverse = function () {
