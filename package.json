@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "jsdom": "^29.1.1",
+    "urllib": "^4.9.0"
+  }
+}

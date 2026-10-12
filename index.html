@@ -5,7 +5,8 @@
         <meta charset="utf-8">
         <script src="day.js"></script>
         <script src="bundle.js"></script>
-
+        <script src="count.js"></script>
+        <script src="square.js"></script>
         <script>
             //let now = new Date();
             //alert(greeting(now));
@@ -17,13 +18,15 @@
         </script>
     </head>
     <body>
-        <h1>Javacript example snippets</h1>
+        <h1>JavaScript Snippets</h1>
+        
         <h3>1) Current day of the week:</h3>
         <p id="dayContent">js error</p>
         <script defer>
             let now = new Date();
             document.getElementById("dayContent").textContent = greeting(now);
         </script>
+        
         <h3>2) Palindrome finder:</h3>
         <form id="palindromeTester">
             <textarea name="phrase"></textarea>
@@ -31,5 +34,22 @@
             <button type="submit return false;">Palindrome?</button>
             <p id="palindromeResult"></p>
         </form>
+        
+        <h3>3) Word counter:</h3>
+        <form id="wordCounter">
+            <textarea name="words"></textarea>
+            <br style="margin: 1em;">
+            <button type="submit return false;">Count</button>
+            <p id="wordResult"></p>
+        </form>
+        
+        <h3>4) Square Roots:</h3>
+        <form id="numberSquare">
+            <input type="number" name="number"></input>
+            <br style="margin: 1em;">
+            <button type="submit return false;">Square</button>
+            <p id="squareResult"></p>
+        </form> 
+        
     </body>
 </html>
